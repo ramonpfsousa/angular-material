@@ -1,3 +1,66 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar>
+	<span>Novo Front</span> 
+	<button md-mini-fab (click)="sidenav.toggle()" style="margin-left: 10px">
+		<md-icon>menu</md-icon>
+	</button>
+	<button md-button>xunda</button>
+</md-toolbar>
+<md-sidenav-container class="teste-sidenav-container">
+	<md-sidenav #sidenav mode="side" opened="true" >
+		<md-nav-list>
+			<a *ngFor="let navItem of navItems" md-list-item
+	         (click)="start.close()" [routerLink]="[navItem.route]">
+	        {{navItem.name}}
+	      </a>
+		</md-nav-list>
+	</md-sidenav>
+	
+	<div>
+	    
+	    <div class="content">
+	    	<md-card>
+	    		<md-card-title>
+	    			Formulario de teste
+	    		</md-card-title>
+	    		<md-card-content>
+			    	<form class="example-form">
+					  <md-input-container class="example-full-width">
+					    <input mdInput placeholder="Company (disabled)" disabled value="Google">
+					  </md-input-container>
+
+					  <table class="example-full-width" cellspacing="0"><tr>
+					    <td><md-input-container class="example-full-width">
+					      <input mdInput placeholder="First name">
+					    </md-input-container></td>
+					    <td><md-input-container class="example-full-width">
+					      <input mdInput placeholder="Long Last Name That Will Be Truncated">
+					    </md-input-container></td>
+					  </tr></table>
+
+					  <p>
+					    <md-input-container class="example-full-width">
+					      <textarea mdInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+					    </md-input-container>
+					    <md-input-container class="example-full-width">
+					      <textarea mdInput placeholder="Address 2"></textarea>
+					    </md-input-container>
+					  </p>
+
+					  <table class="example-full-width" cellspacing="0"><tr>
+					    <td><md-input-container class="example-full-width">
+					      <input mdInput placeholder="City">
+					    </md-input-container></td>
+					    <td><md-input-container class="example-full-width">
+					      <input mdInput placeholder="State">
+					    </md-input-container></td>
+					    <td><md-input-container class="example-full-width">
+					      <input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+					      <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+					    </md-input-container></td>
+					  </tr></table>
+					</form>
+				</md-card-content>
+			</md-card>
+	    </div>
+	  </div>
+</md-sidenav-container>
